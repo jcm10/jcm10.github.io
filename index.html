@@ -24,13 +24,15 @@
 </form>
 <br>
 <br>
-     <h3>Images Needed (IF I NOTIFIED YOU): Dog Photos</h3>
+     <h3>Images Needed: Dog Photos</h3>
     <h3>Whole body as well as face close ups. Any dog photos will be helpful!</h3>
       <form class="imagecollect">
         Daisy
     <input accept="image/*" id="daisyButton" type="file" name="dog" alt="fromUser" />
         Tucker
         <input accept="image/*" id="tuckerButton" type="file" name="dog" alt="fromUser" />
+         Other Dogs
+        <input accept="image/*" id="otherDogButton" type="file" name="dog" alt="fromUser" />
 
    
 
@@ -61,6 +63,7 @@
   let message = document.getElementById('message');
   let daisy = document.getElementById('daisyButton');
   let tucker = document.getElementById('tuckerButton');
+  let otherDog = document.getElementById('otherDogButton');
 
 //listen for file selection
 fileButton.addEventListener('change', function(e) {
@@ -137,6 +140,40 @@ tucker.addEventListener('change', function(e) {
 
     //create a storage ref
     var storageRef = firebase.storage().ref('Tucker/' + file.name);
+
+    //upload the file and validate
+  
+  
+
+
+   
+    var task = storageRef.put(file);
+   
+
+    //update progress bar
+    task.on('state_changed',
+
+      function progress(snapshot) {
+  var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+  uploader.value = percentage;
+},
+
+function error(err) {
+
+},
+function complete() {
+message.innerHTML = 'Thank you for your submission. You are AMAZING!';
+
+}
+);
+});
+  //listen for file selection
+otherDog.addEventListener('change', function(e) {
+  //get <fieldset>
+    var file  = e.target.files[0];
+
+    //create a storage ref
+    var storageRef = firebase.storage().ref('otherDogs/' + file.name);
 
     //upload the file and validate
   
