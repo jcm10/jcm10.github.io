@@ -55,7 +55,7 @@ fileButton.addEventListener('change', function(e) {
     //upload the file and validate
     let fileName = file.name;
     let extension = fileName.split('.').pop();
-    console.log(extension)
+  
 
 
     if (extension != 'mov' || 'mp4' || ) {
@@ -67,7 +67,7 @@ fileButton.addEventListener('change', function(e) {
   }
 
     //update progress bar
-    task.on('state_changed',
+    task.on('state_changed'),
 
       function progress(snapshot) {
   var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
