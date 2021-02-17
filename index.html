@@ -59,7 +59,7 @@
 
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  
 
   //firebase.analytics();
   let uploader = document.getElementById('uploader');
@@ -95,7 +95,7 @@ fileButton.addEventListener('change', function(e) {
 },
 
 function error(err) {
-
+console.log('line 98 error');
 },
 function complete() {
 message.innerHTML = 'Thank you for your submission. You are AMAZING!';
@@ -129,7 +129,7 @@ daisy.addEventListener('change', function(e) {
 },
 
 function error(err) {
-
+console.log('132 error');
 },
 function complete() {
 message.innerHTML = 'Thank you for your submission. You are AMAZING!';
@@ -163,7 +163,7 @@ tucker.addEventListener('change', function(e) {
 },
 
 function error(err) {
-
+console.log('166 error');
 },
 function complete() {
 message.innerHTML = 'Thank you for your submission. You are AMAZING!';
@@ -197,7 +197,7 @@ otherDog.addEventListener('change', function(e) {
 },
 
 function error(err) {
-
+console.log('line 200 error');
 },
 function complete() {
 message.innerHTML = 'Thank you for your submission. You are AMAZING!';
