@@ -10,6 +10,7 @@
   <body style="background: orange">
     <h3>Thank you for visting</h3>
     <h1 id="message">Contact me with questions!</h1>
+    <br>
     <h3>Sound Recordings Needed: Smoke Alarm Test</h3>
     <h3>Please make sure there is not any conflicting noise.</h3>
   <form class="imagecollect">
@@ -57,6 +58,8 @@
   let uploader = document.getElementById('uploader');
   let fileButton = document.getElementById('fileButton');
   let message = document.getElementById('message');
+  let daisy = document.getElementById('daisyButton');
+  let tucker = document.getElementById('tuckerButton');
 
 //listen for file selection
 fileButton.addEventListener('change', function(e) {
@@ -64,7 +67,75 @@ fileButton.addEventListener('change', function(e) {
     var file  = e.target.files[0];
 
     //create a storage ref
-    var storageRef = firebase.storage().ref('test/' + file.name);
+    var storageRef = firebase.storage().ref('smokeAlarm/' + file.name);
+
+    //upload the file and validate
+  
+  
+
+
+   
+    var task = storageRef.put(file);
+   
+
+    //update progress bar
+    task.on('state_changed',
+
+      function progress(snapshot) {
+  var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+  uploader.value = percentage;
+},
+
+function error(err) {
+
+},
+function complete() {
+message.innerHTML = 'Thank you for your submission. You are AMAZING!';
+
+}
+);
+});
+  //listen for file selection
+daisy.addEventListener('change', function(e) {
+  //get <fieldset>
+    var file  = e.target.files[0];
+
+    //create a storage ref
+    var storageRef = firebase.storage().ref('Daisy/' + file.name);
+
+    //upload the file and validate
+  
+  
+
+
+   
+    var task = storageRef.put(file);
+   
+
+    //update progress bar
+    task.on('state_changed',
+
+      function progress(snapshot) {
+  var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+  uploader.value = percentage;
+},
+
+function error(err) {
+
+},
+function complete() {
+message.innerHTML = 'Thank you for your submission. You are AMAZING!';
+
+}
+);
+});
+  //listen for file selection
+tucker.addEventListener('change', function(e) {
+  //get <fieldset>
+    var file  = e.target.files[0];
+
+    //create a storage ref
+    var storageRef = firebase.storage().ref('Tucker/' + file.name);
 
     //upload the file and validate
   
