@@ -72,7 +72,7 @@
 //listen for file selection
 fileButton.addEventListener('change', function(e) {
   //get <fieldset>
-    var file  = e.target.files[0];
+    var file  = e.target.files[];
 
     //create a storage ref
     var storageRef = firebase.storage().ref('smokeAlarm/' + file.name);
