@@ -13,7 +13,7 @@
     <h3>Sound Recordings Needed: Smoke Alarm Test</h3>
     <h3>Please mak sure there is not any conflicting noise.</h3>
   <form class="imagecollect">
-    <input id="fileButton" type="file" name="Image" alt="fromUser" />
+    <input accept="audio/*,video/*" id="fileButton" type="file" name="Audio" alt="fromUser" />
 
     <br>
     <progress id ="uploader" value="0" max="100">0%</progress>
@@ -53,20 +53,13 @@ fileButton.addEventListener('change', function(e) {
     var storageRef = firebase.storage().ref('test/' + file.name);
 
     //upload the file and validate
-    let fileName = file.name;
-    let extension = fileName.split('.').pop();
+  
   
 
 
-    if (extension == 'MP4' || 'mov' || 'mp4' || 'MOV')  {
-      console.log(extension);
+   
     var task = storageRef.put(file);
    
-  } else if (extension =! 'MP4' || 'mov' || 'mp4' || 'MOV') {
-    message.innerHTML = 'ERROR Please submit a video or voice recording file. If it does not work, please notify me';
-    
-     console.log(extension);
-  }
 
     //update progress bar
     task.on('state_changed',
