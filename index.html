@@ -62,7 +62,7 @@ fileButton.addEventListener('change', function(e) {
       console.log(extension);
     var task = storageRef.put(file);
    
-  } else {
+  } else if (extension =! 'MP4' || 'mov' || 'mp4' || 'MOV') {
     message.innerHTML = 'ERROR Please submit a video or voice recording file. If it does not work, please notify me';
     
      console.log(extension);
