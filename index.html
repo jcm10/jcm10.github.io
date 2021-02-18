@@ -194,7 +194,8 @@ cats.addEventListener('change', function(e) {
   //get <fieldset>
    for (i = 0; i < e.target.files.length; i++) {
 var file  = e.target.files[i];
-     var storageRef = firebase.storage().ref('${selectedValue}/' + file.name);
+     var storageRef = firebase.storage().ref(selectedValue + '/' + file.name);
+     console.log(selectedValue + '/');
   var task = storageRef.put(file);
 }
    
