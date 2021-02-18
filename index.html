@@ -41,7 +41,7 @@
 </form>
     <br>
 <br>
-     <h2>Images Needed: Cat Photos GOAL: 50 each.</h2>
+     <h2>Images Needed: Cat Photos GOAL: 85 - 200 each TBA.</h2>
     <h3>Whole body as well as face close ups. Any cat photos of specified cats will be helpful! </h3>
       <form class="imagecollect">
         
@@ -194,7 +194,7 @@ const selectedValue = selectedOption.value;
   //get <fieldset>
    for (i = 0; i < e.target.files.length; i++) {
 var file  = e.target.files[i];
-     var storageRef = firebase.storage().ref(selectedValue/ + file.name);
+     var storageRef = firebase.storage().ref(/ + file.name);
   var task = storageRef.put(file);
 }
    
