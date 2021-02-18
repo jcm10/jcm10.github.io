@@ -87,41 +87,6 @@
   let otherDog = document.getElementById('otherDogButton');
   let cat = document.getElementById('catName');
 
-//listen for file selection
-fileButton.addEventListener('change', function(e) {
-  //get <fieldset>
-    var file  = e.target.files[];
-
-    //create a storage ref
-    var storageRef = firebase.storage().ref('cat.value' + file.name);
-
-    //upload the file and validate
-  
-  
-
-
-   
-    var task = storageRef.put(file);
-   
-
-    //update progress bar
-    task.on('state_changed',
-
-      function progress(snapshot) {
-  var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-  uploader.value = percentage;
-},
-
-function error(err) {
- message.innerHTML = 'ERROR: Please select cat name from the dropdown and try again.';
-console.log('line 98 error');
-},
-function complete() {
-message.innerHTML = 'Thank you for your submission. You are AMAZING!';
-
-}
-);
-});
   //listen for file selection
 daisy.addEventListener('change', function(e) {
   //get <fieldset>
