@@ -187,10 +187,13 @@ message.innerHTML = 'Thank you for your submission. You are AMAZING!';
   
     //listen for file selection
 cats.addEventListener('change', function(e) {
+  let selectedOption = cat.options[cat.selectedIndex];
+  const selectedText = selectedOption.text;
+const selectedValue = selectedOption.value;
   //get <fieldset>
    for (i = 0; i < e.target.files.length; i++) {
 var file  = e.target.files[i];
-     var storageRef = firebase.storage().ref(cat.innerHTML/ + file.name);
+     var storageRef = firebase.storage().ref(selectedValue/ + file.name);
   var task = storageRef.put(file);
 }
    
