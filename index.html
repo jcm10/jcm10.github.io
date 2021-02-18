@@ -125,7 +125,7 @@ message.innerHTML = 'Thank you for your submission. You are AMAZING!';
   //listen for file selection
 daisy.addEventListener('change', function(e) {
   //get <fieldset>
-    var file  = e.target.files[indexPath];
+    var file  = e.target.files[0];
 
     //create a storage ref
     var storageRef = firebase.storage().ref('Daisy/' + file.name);
