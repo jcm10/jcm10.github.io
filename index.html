@@ -90,10 +90,15 @@
   //listen for file selection
 daisy.addEventListener('change', function(e) {
   //get <fieldset>
-    var file  = e.target.files[0];
+  for (i = 0; i < e.target.files.length; i++) {
+var file  = e.target.files[i];
+     var storageRef = firebase.storage().ref('Daisy/' + file.name);
+  var task = storageRef.put(file);
+}
+    
 
     //create a storage ref
-    var storageRef = firebase.storage().ref('Daisy/' + file.name);
+   
 
     //upload the file and validate
   
@@ -101,7 +106,7 @@ daisy.addEventListener('change', function(e) {
 
 
    
-    var task = storageRef.put(file);
+    
    
 
     //update progress bar
@@ -125,7 +130,7 @@ message.innerHTML = 'Thank you for your submission. You are AMAZING!';
   //listen for file selection
 tucker.addEventListener('change', function(e) {
   //get <fieldset>
-    var file  = e.target.files[];
+    var file  = e.target.files[index];
 
     //create a storage ref
     var storageRef = firebase.storage().ref('Tucker/' + file.name);
