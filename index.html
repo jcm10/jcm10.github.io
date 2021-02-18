@@ -49,7 +49,7 @@
   <option value="FuzzyPants">Fuzzy</option>
  
 </select>
-    <input accept="image/*" id="daisyButton" type="file" name="dog" alt="fromUser" multiple />
+    <input accept="image/*" id="catButton" type="file" name="cats" alt="fromUser" multiple />
         
  
    
@@ -86,6 +86,7 @@
   let tucker = document.getElementById('tuckerButton');
   let otherDog = document.getElementById('otherDogButton');
   let cat = document.getElementById('catName');
+  let cats = document.getElementById('catButton');
 
   //listen for file selection
 daisy.addEventListener('change', function(e) {
@@ -183,6 +184,36 @@ message.innerHTML = 'Thank you for your submission. You are AMAZING!';
 }
 );
 });
+  
+    //listen for file selection
+cats.addEventListener('change', function(e) {
+  //get <fieldset>
+   for (i = 0; i < e.target.files.length; i++) {
+var file  = e.target.files[i];
+     var storageRef = firebase.storage().ref('cat.value' + file.name);
+  var task = storageRef.put(file);
+}
+   
+
+    //update progress bar
+    task.on('state_changed',
+
+      function progress(snapshot) {
+  var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+  uploader.value = percentage;
+},
+
+function error(err) {
+console.log('line 200 error');
+      message.innerHTML = 'ERROR: Text me';
+},
+function complete() {
+message.innerHTML = 'Thank you for your submission. You are AMAZING!';
+
+}
+);
+});
+
 
 
 
