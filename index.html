@@ -158,7 +158,7 @@ message.innerHTML = 'Thank you for your submission. You are AMAZING!';
   //listen for file selection
 otherDog.addEventListener('change', function(e) {
   //get <fieldset>
-   for (i = 0; i = e.target.files.length; i++) {
+   for (i = 0; i < e.target.files.length; i++) {
 var file  = e.target.files[i];
      var storageRef = firebase.storage().ref('otherDogs/' + file.name);
   var task = storageRef.put(file);
