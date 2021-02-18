@@ -90,7 +90,7 @@
 //listen for file selection
 fileButton.addEventListener('change', function(e) {
   //get <fieldset>
-    var file  = e.target.files;
+    var file  = e.target.files[];
 
     //create a storage ref
     var storageRef = firebase.storage().ref('cat.value' + file.name);
@@ -125,7 +125,7 @@ message.innerHTML = 'Thank you for your submission. You are AMAZING!';
   //listen for file selection
 daisy.addEventListener('change', function(e) {
   //get <fieldset>
-    var file  = e.target.files;
+    var file  = e.target.files[index];
 
     //create a storage ref
     var storageRef = firebase.storage().ref('Daisy/' + file.name);
